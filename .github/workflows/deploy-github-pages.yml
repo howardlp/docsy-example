@@ -45,7 +45,7 @@ jobs:
           cache-dependency-path: '**/package-lock.json'
 
       - run: npm ci
-      - run: hugo --baseURL https://${REPO_OWNER}.github.io/${REPO_NAME} --minify
+      - run: hugo --baseURL https://${REPO_OWNER}.github.io/${REPO_NAME}
 
       - name: Deployment
         uses: peaceiris/actions-gh-pages@v3
