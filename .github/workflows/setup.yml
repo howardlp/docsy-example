@@ -1,7 +1,7 @@
 name: Hugo tool cache
 on: 
   push:
-  workflow-dispatch:
+  workflow_dispatch:
   
 env:
   REPO_NAME: ${{ github.event.repository.name }}
