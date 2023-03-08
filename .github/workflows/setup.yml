@@ -33,6 +33,17 @@ jobs:
           cache-dependency-path: '**/package-lock.json'
           
 
+      - run: npm ci
+      - run: hugo --baseURL https://${REPO_OWNER}.github.io/${REPO_NAME} --minify
+
+      - name: Deployment
+        uses: peaceiris/actions-gh-pages@v3
+        if: ${{ github.ref == 'refs/heads/master' }} # <- must be same branch as given above
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+
+
       - name: Archive tool cache
         run: |
           cd "${{ runner.tool_cache }}"
