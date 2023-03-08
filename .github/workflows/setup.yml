@@ -11,10 +11,7 @@ jobs:
   upload_tool_cache:
     runs-on: ubuntu-22.04
     steps:
-      - name: Clear any existing tool cache
-        run: |
-          mv "${{ runner.tool_cache }}" "${{ runner.tool_cache }}.old"
-          mkdir -p "${{ runner.tool_cache }}"
+
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0         # Fetch all history for .GitInfo and .Lastmod
