@@ -20,8 +20,14 @@ jobs:
    
     steps:
 
+      - name: Clear any existing tool cache
+        run: |
+          mv "${{ runner.tool_cache }}" "${{ runner.tool_cache }}.old"
+          mkdir -p "${{ runner.tool_cache }}"
+
       - uses: actions/checkout@v3
         with:
+          submodules: true
           fetch-depth: 0         # Fetch all history for .GitInfo and .Lastmod
 
       - name: Setup Hugo
