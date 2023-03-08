@@ -1,5 +1,12 @@
 name: Hugo tool cache
-on: push
+on: 
+  push:
+  workflow-dispatch:
+  
+env:
+  REPO_NAME: ${{ github.event.repository.name }}
+  REPO_OWNER: ${{ github.repository_owner }}
+  
 jobs:
   upload_tool_cache:
     runs-on: ubuntu-22.04
